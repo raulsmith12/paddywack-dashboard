@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import Head from 'next/head';
+import Sidebar from '../components/Sidebar';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/owl.css';
@@ -27,10 +29,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <div className="container-fluid px-0">
+      <Head>
+        <title>Paddy Wack Homemade Gifts</title>
+        <meta name="description" content="Custom homemade gifts for any occasion" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {signedIn && (
         <div className="row">
           <div className="col-md-2 col-sm-3">
-            &nbsp;
+            <Sidebar />
           </div>
           <div className="col-md-10 col-sm-9">
             <main className="main">
