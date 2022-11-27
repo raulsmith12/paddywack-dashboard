@@ -13,10 +13,10 @@ const Sidebar = () => {
                         <Link href="/home-sections"><a className="text-white sidenav-link"><h5>Home Sections</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Home Sliders</h5></a></Link>
+                        <Link href="/home-sliders"><a className="text-white sidenav-link"><h5>Home Sliders</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>About</h5></a></Link>
+                        <Link href="/about"><a className="text-white sidenav-link"><h5>About</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
                         <Link href="/"><a className="text-white sidenav-link"><h5>Artists</h5></a></Link>
