@@ -31,7 +31,7 @@ const HomeSliders = () => {
         {sliders.map(i => (
             <div className="col-4" key={i.id}>
                 <h4>Slider {i.id}</h4>
-                <img src={i.image_url} width="85%" /><br /><br />
+                <img src={i.image_url} width="85%" alt="Paddy Wack Homemade Gifts slider" /><br /><br />
                 <Slider image={i.id} />
             </div>
         ))}

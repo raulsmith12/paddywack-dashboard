@@ -19,10 +19,10 @@ const Home = () => {
           <NavCard cardTitle="About Content" cardDesc="The content found on the about page" url="/about" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Artists Content" cardDesc="Add, edit, and remove artists in the about section" url="/" />
+          <NavCard cardTitle="Artists Content" cardDesc="Add, edit, and remove artists in the about section" url="/artists" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Gallery Images" cardDesc="Add and remove images in the gallery" url="/" />
+          <NavCard cardTitle="Gallery Images" cardDesc="Add and remove images in the gallery" url="/gallery" />
         </div>
         <div className="col-3 px-2 py-2">
           <NavCard cardTitle="Contact Page Content" cardDesc="The content in the contact page (form not included)" url="/" />

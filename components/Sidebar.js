@@ -19,10 +19,10 @@ const Sidebar = () => {
                         <Link href="/about"><a className="text-white sidenav-link"><h5>About</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Artists</h5></a></Link>
+                        <Link href="/artists"><a className="text-white sidenav-link"><h5>Artists</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Gallery</h5></a></Link>
+                        <Link href="/gallery"><a className="text-white sidenav-link"><h5>Gallery</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
                         <Link href="/"><a className="text-white sidenav-link"><h5>Contact Page</h5></a></Link>

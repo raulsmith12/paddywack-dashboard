@@ -89,7 +89,7 @@ const HomeSection = props => {
             </form>
             <div className="mb-3">
                 <h5>Icon</h5>
-                <img src={icon} width="100%" /><br /><br />
+                <img src={icon} width="100%" alt="Paddy Wack Gifts icon" /><br /><br />
                 <form onSubmit={fileUpload}>
                     <input type="file" onChange={imageUpload} />
                     <button type="submit">Upload</button>
