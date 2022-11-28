@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Sidebar from '../components/Sidebar';
@@ -11,6 +11,10 @@ function MyApp({ Component, pageProps }) {
   const [signedIn, setSignedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
 
   const handleFormSubmit = e => {
     e.preventDefault();

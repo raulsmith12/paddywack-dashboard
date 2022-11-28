@@ -25,7 +25,7 @@ const Home = () => {
           <NavCard cardTitle="Gallery Images" cardDesc="Add and remove images in the gallery" url="/gallery" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Contact Page Content" cardDesc="The content in the contact page (form not included)" url="/" />
+          <NavCard cardTitle="Contact Page Content" cardDesc="The content in the contact page (form not included)" url="/contact-page" />
         </div>
         <div className="col-3 px-2 py-2">
           <NavCard cardTitle="Commission Page Content" cardDesc="The content in the commission page (form not included)" url="/" />

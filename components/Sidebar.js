@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Sidebar = () => {
     return (
-        <div className="bg-secondary text-white full-screen">
+        <div className="bg-secondary text-white full-screen sticky-top">
             <div className="py-2">
                 <h4 className="text-center">Paddy Wack<br />Homemade<br />Gifts</h4>
                 <ul className="nav flex-column ps-2">
@@ -25,7 +25,7 @@ const Sidebar = () => {
                         <Link href="/gallery"><a className="text-white sidenav-link"><h5>Gallery</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Contact Page</h5></a></Link>
+                        <Link href="/contact-page"><a className="text-white sidenav-link"><h5>Contact Page</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
                         <Link href="/"><a className="text-white sidenav-link"><h5>Commission Page</h5></a></Link>

@@ -24,50 +24,50 @@ const Artists = () => {
   const imageUpload = e => {
     let file = e.target.files[0];
     createImage(file);
-}
+  }
 
-const createImage = (file) => {
-    let reader  = new FileReader();
-    reader.onload = (e) => {
-        setUploadImage(e.target.result);
-    };
-    reader.readAsDataURL(file);
-}
+  const createImage = (file) => {
+      let reader  = new FileReader();
+      reader.onload = (e) => {
+          setUploadImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
+  }
 
-const fileUpload = e => {
-    e.preventDefault();
-    axios({
-        method: 'post',
-        url: 'https://paddywackgifts.com/backend/public/api/files',
-        headers: { 'content-type': 'application/json' },
-        data: {
-            'file_name': uploadImage
-        }
-    })
-    .then(result => {
-        swal("Success!", "Your image has been uploaded successfully! Please be sure to review all Artist information and click on Submit to change your artist image!", "success"),
-        setNewImage(result.data)
-    })
-    .catch(error => swal("Uh oh! Something went wrong. Please try again."))
-}
+  const fileUpload = e => {
+      e.preventDefault();
+      axios({
+          method: 'post',
+          url: 'https://paddywackgifts.com/backend/public/api/files',
+          headers: { 'content-type': 'application/json' },
+          data: {
+              'file_name': uploadImage
+          }
+      })
+      .then(result => {
+          swal("Success!", "Your image has been uploaded successfully! Please be sure to review all Artist information and click on Submit to change your artist image!", "success"),
+          setNewImage(result.data)
+      })
+      .catch(error => swal("Uh oh! Something went wrong. Please try again."))
+  }
 
-const handleFormSubmit = e => {
-    e.preventDefault();
-    axios({
-        method: 'post',
-        url: 'https://paddywackgifts.com/backend/public/api/artist',
-        headers: { 'content-type': 'application/json' },
-        data: {
-            'name': newName,
-            'description': newDescription,
-            'image_url': newImage
-        }
-    })
-    .then(result => {
-        swal("Success!", "Artist content successfully added!", "success")
-    })
-    .catch(error => swal("Uh oh! Something went wrong. Please try again."))
-}
+  const handleFormSubmit = e => {
+      e.preventDefault();
+      axios({
+          method: 'post',
+          url: 'https://paddywackgifts.com/backend/public/api/artist',
+          headers: { 'content-type': 'application/json' },
+          data: {
+              'name': newName,
+              'description': newDescription,
+              'image_url': newImage
+          }
+      })
+      .then(result => {
+          swal("Success!", "Artist content successfully added!", "success")
+      })
+      .catch(error => swal("Uh oh! Something went wrong. Please try again."))
+  }
 
   return (
     <div className="container-fluid">
