@@ -37,7 +37,7 @@ const Sidebar = () => {
                         <Link href="/privacy"><a className="text-white sidenav-link"><h5>Privacy Page</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Edit/Remove Products</h5></a></Link>
+                        <Link href="/products"><a className="text-white sidenav-link"><h5>Edit/Remove Products</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
                         <Link href="/"><a className="text-white sidenav-link"><h5>Add Products</h5></a></Link>
