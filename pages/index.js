@@ -34,7 +34,7 @@ const Home = () => {
           <NavCard cardTitle="Join Page Content" cardDesc="The content in the join page (form not included)" url="/join-page" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Privacy Page Content" cardDesc="The content in the privacy policy page" url="/" />
+          <NavCard cardTitle="Privacy Page Content" cardDesc="The content in the privacy policy page" url="/privacy" />
         </div>
         <div className="col-3 px-2 py-2">
           <NavCard cardTitle="Edit/Remove Products" cardDesc="Edit and remove products from the shop" url="/" />
