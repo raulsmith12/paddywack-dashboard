@@ -28,10 +28,10 @@ const Sidebar = () => {
                         <Link href="/contact-page"><a className="text-white sidenav-link"><h5>Contact Page</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Commission Page</h5></a></Link>
+                        <Link href="/commission-page"><a className="text-white sidenav-link"><h5>Commission Page</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Join Page</h5></a></Link>
+                        <Link href="/join-page"><a className="text-white sidenav-link"><h5>Join Page</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
                         <Link href="/"><a className="text-white sidenav-link"><h5>Privacy Page</h5></a></Link>

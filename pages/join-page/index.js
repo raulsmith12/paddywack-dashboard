@@ -3,19 +3,19 @@ import axios from 'axios';
 import { Editor } from '@tinymce/tinymce-react';
 import swal from 'sweetalert';
 
-const ContactPage = () => {
+const JoinPage = () => {
     const [title, setTitle] = useState();
     const [content, setContent] = useState();
     const editorRef = useRef(null);
 
     useEffect(() => {
         async function fetchData() {
-          const contactPage = await axios(
-            'https://backend.paddywackgifts.com/public/api/contact-page'
+          const joinPage = await axios(
+            'https://backend.paddywackgifts.com/public/api/join-page'
           );
     
-          setTitle(contactPage.data.data[0].title)
-          setContent(contactPage.data.data[0].page_content)
+          setTitle(joinPage.data.data[0].title)
+          setContent(joinPage.data.data[0].page_content)
         }
     
         fetchData();
@@ -29,7 +29,7 @@ const ContactPage = () => {
         setTimeout(() => {
             axios({
                 method: 'POST',
-                url: 'https://paddywackgifts.com/backend/public/api/contact-page/1',
+                url: 'https://paddywackgifts.com/backend/public/api/join-page/1',
                 headers: { 'content-type': 'application/json' },
                 data: {
                     'title': title,
@@ -38,7 +38,7 @@ const ContactPage = () => {
                 params: { '_method': 'PUT' }
             })
             .then(result => {
-                swal("Success!", "Contact Page content successfully updated!", "success")
+                swal("Success!", "Join Page content successfully updated!", "success")
             })
             .catch(error => swal("Uh oh! Something went wrong. Please try again."))
         }, 2500)
@@ -48,7 +48,7 @@ const ContactPage = () => {
         <div className="container-fluid">
             <div className="row">
                 <div className="col">
-                    <h1>Contact Page Content</h1>
+                    <h1>Join Page Content</h1>
                 </div>
             </div>
             <div className="row">
@@ -87,4 +87,4 @@ const ContactPage = () => {
     )
 }
 
-export default ContactPage;
+export default JoinPage;
