@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
+import ProductCard from '../../components/ProductCard';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -11,7 +11,7 @@ const Products = () => {
                 'https://backend.paddywackgifts.com/public/api/shop'
             );
 
-            console.log(productCards.data);
+            setProducts(productCards.data.data);
         }
 
         fetchData();
@@ -23,6 +23,13 @@ const Products = () => {
                 <div className="col">
                     <h1>Products</h1>
                 </div>
+            </div>
+            <div className="row">
+                {products.map(i => (
+                    <div className="col-3" key={i.id}>
+                        <ProductCard id={i.id} image={i.images[0]} name={i.name} />
+                    </div>
+                ))}
             </div>
         </div>
     )

@@ -40,16 +40,16 @@ const Home = () => {
           <NavCard cardTitle="Edit/Remove Products" cardDesc="Edit and remove products from the shop" url="/products" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Add Products" cardDesc="Add new products into the shop" url="/" />
+          <NavCard cardTitle="Add Products" cardDesc="Add new products into the shop" url="/products/add" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Contact Page Correspondence" cardDesc="All incoming correspondence from the contact page form" url="/" />
+          <NavCard cardTitle="Contact Page Correspondence" cardDesc="All incoming correspondence from the contact page form" url="/contact-correspondence" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Commission Page Correspondence" cardDesc="All incoming correspondence from the commission page form" url="/" />
+          <NavCard cardTitle="Commission Page Correspondence" cardDesc="All incoming correspondence from the commission page form" url="/commission-correspondence" />
         </div>
         <div className="col-3 px-2 py-2">
-          <NavCard cardTitle="Join Page Correspondence" cardDesc="All incoming correspondence from the join page form" url="/" />
+          <NavCard cardTitle="Join Page Correspondence" cardDesc="All incoming correspondence from the join page form" url="/join-correspondence" />
         </div>
       </div>
     </div>

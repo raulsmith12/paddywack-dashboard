@@ -40,16 +40,16 @@ const Sidebar = () => {
                         <Link href="/products"><a className="text-white sidenav-link"><h5>Edit/Remove Products</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Add Products</h5></a></Link>
+                        <Link href="/products/add"><a className="text-white sidenav-link"><h5>Add Products</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Contact Correspondence</h5></a></Link>
+                        <Link href="/contact-correspondence"><a className="text-white sidenav-link"><h5>Contact Correspondence</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Commission Correspondence</h5></a></Link>
+                        <Link href="/commission-correspondence"><a className="text-white sidenav-link"><h5>Commission Correspondence</h5></a></Link>
                     </li>
                     <li className="nav-item py-2 pe-2 border-bottom border-white">
-                        <Link href="/"><a className="text-white sidenav-link"><h5>Join Correspondence</h5></a></Link>
+                        <Link href="/join-correspondence"><a className="text-white sidenav-link"><h5>Join Correspondence</h5></a></Link>
                     </li>
                 </ul>
             </div>
