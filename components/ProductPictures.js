@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-const ProductPictures = props => {
+const ProductPictures = ({ id }) => {
     const router = useRouter();
     const [pictures, setPictures] = useState([]);
     const [showForm, setShowForm] = useState(false);
@@ -12,14 +12,14 @@ const ProductPictures = props => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://backend.paddywackgifts.com/public/api/shop/${props.id}`
+                `https://backend.paddywackgifts.com/public/api/shop/${id}`
             );
 
             setPictures(productStuff.data.data.images);
         }
 
         fetchData();
-    }, []);
+    }, [pictures]);
 
     const addImageToProduct = (file) => {
         axios({
@@ -27,12 +27,11 @@ const ProductPictures = props => {
             url: 'https://backend.paddywackgifts.com/public/api/shop-images',
             headers: { 'content-type': 'application/json' },
             data: {
-                'shop_id': props.id,
+                'shop_id': id,
                 'image_url': file,
                 'thumbnail_url': file
             }
         });
-        setPictures(pictures => [...pictures, file]);
     }
 
     const imageUpload = e => {

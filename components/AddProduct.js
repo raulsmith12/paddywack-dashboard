@@ -74,6 +74,11 @@ const AddProduct = () => {
                     <span class="input-group-text">.00</span>
                 </div>
             </div>
+            <div className="row">
+                <div className="col-12">
+                    <button type="submit" className="btn btn-primary">Add Product</button>
+                </div>
+            </div>
         </form>
     )
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const GalleryImage = props => {
+const GalleryImage = ({ id }) => {
     const [imageUrl, setImageUrl] = useState();
     const [description, setDescription] = useState();
     const router = useRouter();
@@ -10,7 +10,7 @@ const GalleryImage = props => {
     useEffect(() => {
         async function fetchData() {
             const image = await axios(
-                `https://backend.paddywackgifts.com/public/api/galleries/${props.id}`
+                `https://backend.paddywackgifts.com/public/api/galleries/${id}`
             )
 
             setImageUrl(image.data.data.image_url);
@@ -31,7 +31,7 @@ const GalleryImage = props => {
             if (willDelete) {
                 axios({
                     method: 'delete',
-                    url: `https://backend.paddywackgifts.com/public/api/galleries${props.id}`
+                    url: `https://backend.paddywackgifts.com/public/api/galleries${id}`
                 })
                 .then(result => {
                     swal("Success!", "Your image has been deleted!", "success"),
@@ -46,7 +46,7 @@ const GalleryImage = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://paddywackgifts.com/backend/public/api/galleries/${props.id}`,
+            url: `https://paddywackgifts.com/backend/public/api/galleries/${id}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'description': description,
@@ -65,14 +65,14 @@ const GalleryImage = props => {
     return (
         <div className="shadow p-3 mb-5 bg-body rounded">
             <img src={imageUrl} width="90%" alt={description} />
-            <button type="button" className="btn btn-success m-2" data-bs-toggle="modal" data-bs-target={`#modal${props.id}`}>View Image</button>
+            <button type="button" className="btn btn-success m-2" data-bs-toggle="modal" data-bs-target={`#modal${id}`}>View Image</button>
             <button type="button" className="btn btn-danger m-2" onClick={() => deleteImage()}>Delete Image</button>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="descText" className="form-label">Description</label>
                 <input type="text" className="form-control" id="descText" name="descText" required value={description} onChange={e => setDescription(e.target.value)} />
                 <button type="submit" className="btn btn-primary my-2">Change Description</button>
             </form>
-            <div class="modal fade" id={`modal${props.id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id={`modal${id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">

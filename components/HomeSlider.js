@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from "axios";
 
-const Slider = props => {
+const Slider = ({ image }) => {
     const [uploadImage, setUploadImage] = useState('');
 
     const imageUpload = e => {
@@ -30,10 +30,10 @@ const Slider = props => {
         .then(res => {
             axios({
                 method: 'POST',
-                url: `https://paddywackgifts.com/backend/public/api/home-sliders/${props.image}`,
+                url: `https://paddywackgifts.com/backend/public/api/home-sliders/${image}`,
                 headers: { 'content-type': 'application/json' },
                 data: {
-                    'slider_id': props.image,
+                    'slider_id': image,
                     'image_url': res.data
                 },
                 params: {

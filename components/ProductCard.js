@@ -3,7 +3,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import Link from 'next/link';
 
-const ProductCard = props => {
+const ProductCard = ({ image, name, id }) => {
     const router = useRouter();
 
     const deleteProduct = (e) => {
@@ -31,12 +31,12 @@ const ProductCard = props => {
     return (
         <div className="card mb-2">
             <div className="card-body">
-                {props.image && (
-                    <img src={props.image.thumbnail_url} width="100%" />
+                {image && (
+                    <img src={image.thumbnail_url} width="100%" />
                 )}
-                <h5 className="card-title">{props.name}</h5>
-                <Link href={`products/${props.id}`}><a className="btn btn-primary mx-2">Edit Product</a></Link>
-                <button className="btn btn-danger mx-2" onClick={() => deleteProduct(props.id)}>Delete Product</button>
+                <h5 className="card-title">{name}</h5>
+                <Link href={`products/${id}`}><a className="btn btn-primary mx-2">Edit Product</a></Link>
+                <button className="btn btn-danger mx-2" onClick={() => deleteProduct(id)}>Delete Product</button>
             </div>
         </div>
     )

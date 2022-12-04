@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-const NavCard = props => {
+const NavCard = ({ cardTitle, cardDesc, url }) => {
     return (
         <div className="card w-75">
             <div className="card-body">
-                <h5 className="card-title">{props.cardTitle}</h5>
-                <p className="card-text">{props.cardDesc}</p>
-                <Link href={props.url}><a className="btn btn-primary">Click here</a></Link>
+                <h5 className="card-title">{cardTitle}</h5>
+                <p className="card-text">{cardDesc}</p>
+                <Link href={url}><a className="btn btn-primary">Click here</a></Link>
             </div>
         </div>
     )

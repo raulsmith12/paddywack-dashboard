@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { Editor } from '@tinymce/tinymce-react';
 
-const ProductInfo = props => {
+const ProductInfo = ({ id }) => {
     const [shopName, setShopName] = useState();
     const [price, setPrice] = useState();
     const [description, setDescription] = useState();
@@ -12,7 +12,7 @@ const ProductInfo = props => {
         async function fetchData() {
         
             const productStuff = await axios(
-                `https://backend.paddywackgifts.com/public/api/shop/${props.id}`
+                `https://backend.paddywackgifts.com/public/api/shop/${id}`
             );
 
             setShopName(productStuff.data.data.name);
@@ -30,7 +30,7 @@ const ProductInfo = props => {
         }
         axios({
             method: 'post',
-            url: `https://galacticblue.net/cheekyginger/backend/public/api/products/${props.id}`,
+            url: `https://galacticblue.net/cheekyginger/backend/public/api/products/${id}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'name': shopName,

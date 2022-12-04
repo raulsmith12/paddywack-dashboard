@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const ArtistCard = props => {
+const ArtistCard = ({ id }) => {
     const [name, setName] = useState();
     const [description, setDescription] = useState();
     const [image, setImage] = useState();
@@ -10,7 +10,7 @@ const ArtistCard = props => {
     useEffect(() => {
         async function fetchData() {
             const artist = await axios(
-                `https://backend.paddywackgifts.com/public/api/artist/${props.id}`
+                `https://backend.paddywackgifts.com/public/api/artist/${id}`
             )
 
             setName(artist.data.data.name);
@@ -55,7 +55,7 @@ const ArtistCard = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://paddywackgifts.com/backend/public/api/artist/${props.id}`,
+            url: `https://paddywackgifts.com/backend/public/api/artist/${id}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'name': name,

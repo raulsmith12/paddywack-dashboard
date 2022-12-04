@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
 
-const HomeSection = props => {
+const HomeSection = ({ section, id }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [icon, setIcon] = useState();
@@ -10,10 +10,10 @@ const HomeSection = props => {
     const [uploadImage, setUploadImage] = useState('');
 
     useEffect(() => {
-        const iconSubstr = props.section.link_url.substring(27);
-        setTitle(props.section.title);
-        setDescription(props.section.description);
-        setIcon(props.section.icon_url);
+        const iconSubstr = section.link_url.substring(27);
+        setTitle(section.title);
+        setDescription(section.description);
+        setIcon(section.icon_url);
         setLink(iconSubstr);
     }, []);
 
@@ -21,7 +21,7 @@ const HomeSection = props => {
         e.preventDefault();
         axios({
             method: 'post',
-            url: `https://paddywackgifts.com/backend/public/api/home-sections/${props.id}`,
+            url: `https://paddywackgifts.com/backend/public/api/home-sections/${id}`,
             headers: { 'content-type': 'application/json' },
             data: {
                 'title': title,
@@ -71,7 +71,7 @@ const HomeSection = props => {
 
     return (
         <>
-            <h4>Section {props.id}</h4>
+            <h4>Section {id}</h4>
             <form className="border border-primary p-2" onSubmit={e => handleFormSubmit(e)}>
                 <div className="mb-3">
                     <label htmlFor="titleText" className="form-label">Title</label>
