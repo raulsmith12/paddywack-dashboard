@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { ThreeDots } from 'react-loader-spinner';
 import HomeSection from '../../components/HomeSection';
 
 const HomeSections = () => {
   const [sections, setSections] = useState([]);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -12,6 +14,7 @@ const HomeSections = () => {
       );
 
       setSections(pageSections.data.data);
+      setShowLoader(false);
     }
 
     fetchData();
@@ -25,6 +28,16 @@ const HomeSections = () => {
           <h5>The three sections that you find on the home page</h5>
         </div>
       </div>
+      <ThreeDots 
+          height="80" 
+          width="80" 
+          radius="9"
+          color="#922667" 
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={showLoader}
+      />
       <div className="row">
         {sections.map(i => {
           return (

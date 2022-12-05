@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { ThreeDots } from 'react-loader-spinner';
 
 import Slider from '../../components/HomeSlider';
 
 const HomeSliders = () => {
   const [sliders, setSliders] = useState([]);
-  const [uploadImage, setUploadImage] = useState('');
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -14,6 +15,7 @@ const HomeSliders = () => {
       );
 
       setSliders(homeSliders.data.data);
+      setShowLoader(false);
     }
 
     fetchData();
@@ -27,6 +29,16 @@ const HomeSliders = () => {
           <h5>The three sliders that fade in and out on the home page</h5>
         </div>
       </div>
+      <ThreeDots 
+          height="80" 
+          width="80" 
+          radius="9"
+          color="#922667" 
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={showLoader}
+      />
       <div className="row">
         {sliders.map(i => (
             <div className="col-4" key={i.id}>

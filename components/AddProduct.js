@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 const AddProduct = () => {
     const router = useRouter();
     const [shopName, setShopName] = useState();
-    const [description, setDescription] = useState();
+    const [description, setDescription] = useState('');
     const [price, setPrice] = useState();
     const editorRef = useRef(null);
     const [route, setRoute] = useState();
@@ -22,8 +22,8 @@ const AddProduct = () => {
             headers: { 'content-type': 'application/json' },
             data: {
                 'name': shopName,
-                'price': price,
-                'description': description
+                'description': description,
+                'price': price
             }
         })
         .then(result => {

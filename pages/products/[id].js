@@ -23,7 +23,7 @@ const Product = () => {
     }, []);
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid position-relative">
             <h2 className="display-2">{shopName}</h2>
             <ProductInfo id={id} />
             <h4>Pictures</h4>

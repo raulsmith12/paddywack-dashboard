@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { ThreeDots } from 'react-loader-spinner';
 
 const ProductPictures = ({ id }) => {
     const router = useRouter();
     const [pictures, setPictures] = useState([]);
     const [showForm, setShowForm] = useState(false);
     const [uploadImage, setUploadImage] = useState('');
+    const [showLoader, setShowLoader] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
@@ -49,6 +51,8 @@ const ProductPictures = ({ id }) => {
 
     const fileUpload = e => {
         e.preventDefault();
+        setShowForm(false);
+        setShowLoader(true);
         axios({
             method: 'post',
             url: 'https://backend.paddywackgifts.com/public/api/files',
@@ -58,6 +62,7 @@ const ProductPictures = ({ id }) => {
             }
         })
         .then(result => {
+            setShowLoader(false),
             swal("Success!", "Your image has been uploaded successfully!", "success"),
             addImageToProduct(result.data)
         })
@@ -88,25 +93,37 @@ const ProductPictures = ({ id }) => {
     }
 
     return (
-        <div className="row">
-            {pictures.map(i => {
-                return (
-                    <div className="col-2 border border-primary py-2" key={i.id}>
-                        <img src={i.image_url} width="100%" /><br /><br />
-                        <button type="button" className="btn btn-danger btn-lg" onClick={e => confirmDelete(i.id)}>Remove Picture</button>
-                    </div>
-                )
-            })}
-            <div className="col-2">
-                <button type="button" className="btn btn-success btn-lg" onClick={e => setShowForm(true)}>Add Picture</button>
-                {showForm && (
-                    <form onSubmit={fileUpload}>
-                        <input type="file" onChange={imageUpload} />
-                        <button type="submit">Upload</button>
-                    </form>
-                )}
+        <>
+            <ThreeDots 
+                height="80" 
+                width="80" 
+                radius="9"
+                color="#922667" 
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName="position-absolute top-50 start-50 translate-middle"
+                visible={showLoader}
+            />
+            <div className="row">
+                {pictures.map(i => {
+                    return (
+                        <div className="col-2 border border-primary mx-1 py-2" key={i.id}>
+                            <img src={i.image_url} width="100%" /><br /><br />
+                            <button type="button" className="btn btn-danger btn-lg" onClick={e => confirmDelete(i.id)}>Remove Picture</button>
+                        </div>
+                    )
+                })}
+                <div className="col-md-2 col-sm-4">
+                    <button type="button" className="btn btn-success btn-lg" onClick={e => setShowForm(true)}>Add Picture</button>
+                    {showForm && (
+                        <form onSubmit={fileUpload}>
+                            <input type="file" onChange={imageUpload} className="form-control my-2" />
+                            <button type="submit" className="btn btn-outline-success">Upload</button>
+                        </form>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
