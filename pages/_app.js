@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Sidebar from '../components/Sidebar';
+import Transition from '../components/Transition';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/owl.css';
@@ -45,7 +46,9 @@ function MyApp({ Component, pageProps }) {
           </div>
           <div className="col-md-10 col-sm-9">
             <main className="main">
-              <Component {...pageProps} />
+              <Transition>
+                <Component {...pageProps} />
+              </Transition>
             </main>
           </div>
         </div>
