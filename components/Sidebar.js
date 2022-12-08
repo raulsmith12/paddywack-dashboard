@@ -56,7 +56,7 @@ const Sidebar = () => {
             <div className="px-2">
                 <h6 className="text-white text-center">
                     &copy; {(new Date().getFullYear())} Paddy Wack Homemade Gifts.<br />All Rights Reserved.<br />
-                    Powered by GALACTIC|blue
+                    Powered by Galactic Digital Studios
                 </h6>
             </div>
         </div>

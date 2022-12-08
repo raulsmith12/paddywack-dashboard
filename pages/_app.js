@@ -39,12 +39,12 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="Custom homemade gifts for any occasion" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {signedIn && (
-        <div className="row">
-          <div className="col-md-2 col-sm-3">
+      {signedIn ? (
+        <div className="row mx-0">
+          <div className="col-md-2 d-none d-md-block ps-0">
             <Sidebar />
           </div>
-          <div className="col-md-10 col-sm-9">
+          <div className="col-md-10 col-sm-12">
             <main className="main">
               <Transition>
                 <Component {...pageProps} />
@@ -52,28 +52,29 @@ function MyApp({ Component, pageProps }) {
             </main>
           </div>
         </div>
-      )}
-      {!signedIn && (
-        <div className="container-sm full-screen d-flex align-items-center justify-content-center">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <h3 className="text-center">Welcome</h3>
+      ) : (
+        <div className="row mx-0">
+          <div className="col px-0">
+            <div className="container full-screen align-items-center justify-content-center">
+              <div className="row mx-0">
+                <div className="col-12 px-0">
+                  <h3 className="text-center">Welcome</h3>
+                </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col-6 offset-3">
-                <form className="border border-primary px-2 py-2" onSubmit={e => handleFormSubmit(e)}>
-                  <div className="mb-3">
-                    <label htmlFor='emailInput' className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" required value={email} onChange={e => setEmail(e.target.value)} />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor='passwordInput' className="form-label">Password</label>
-                    <input type="password" className="form-control" id="passwordInput" name="password" required value={password} onChange={e => setPassword(e.target.value)} />
-                  </div>
-                  <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
+              <div className="row mx-0">
+                <div className="col-6 offset-3">
+                  <form className="border border-primary px-2 py-2" onSubmit={e => handleFormSubmit(e)}>
+                    <div className="mb-3">
+                      <label htmlFor='emailInput' className="form-label">Email address</label>
+                      <input type="email" className="form-control" id="emailInput" aria-describedby="emailHelp" name="email" required value={email} onChange={e => setEmail(e.target.value)} />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor='passwordInput' className="form-label">Password</label>
+                      <input type="password" className="form-control" id="passwordInput" name="password" required value={password} onChange={e => setPassword(e.target.value)} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
